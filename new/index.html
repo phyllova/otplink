@@ -1,0 +1,29 @@
+<div class="login-container">
+  <h2>Login</h2>
+  <form id="loginForm" action="process_login.php" method="post">
+    <input type="text" name="username" placeholder="Username" required><br>
+    <input type="password" name="password" placeholder="Password" required><br>
+    <button type="submit">Login</button>
+  </form>
+
+  <div id="otpContainer" style="display: none;">
+    <h2>Enter OTP</h2>
+    <p id="countdown"></p>
+    <form id="otpForm" action="verify_otp.php" method="post">
+      <input type="hidden" name="username" id="otpUsername">
+      <input type="text" name="otp" placeholder="Enter OTP" required><br>
+      <button type="submit">Verify OTP</button>
+    </form>
+  </div>
+
+  <div id="votingContainer" style="display: none;">
+    <h2>Vote</h2>
+    <div class="vote-option">
+      <input type="radio" name="vote" value="option1" required> Option 1
+    </div>
+    <div class="vote-option">
+      <input type="radio" name="vote" value="option2" required> Option 2
+    </div>
+    <button id="submitVote">Submit Vote</button>
+  </div>
+</div>
